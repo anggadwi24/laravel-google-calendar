@@ -14,7 +14,10 @@ class CalendarController extends BaseController
 {
     public function index(){
         $data = [];
-        $events = Event::get();
+        $start = Carbon::now()->startOfYear();
+        $end = Carbon::now()->endOfYear();
+       
+        $events = Event::get($start,$end);
         foreach($events as $row){
             $data[] = ['id'=>$row->id,'name'=>$row->name,'description'=>$row->description,'startDateTime'=>$row->startDateTime,'endDateTime'=>$row->endDateTime];
         }
