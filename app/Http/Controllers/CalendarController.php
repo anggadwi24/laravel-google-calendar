@@ -19,7 +19,7 @@ class CalendarController extends BaseController
        
         $events = Event::get($start,$end);
         foreach($events as $row){
-            $data[] = ['id'=>$row->id,'name'=>$row->name,'description'=>$row->description,'startDateTime'=>$row->startDateTime,'endDateTime'=>$row->endDateTime];
+            $data[] = ['id'=>$row->id,'name'=>$row->name,'description'=>$row->description,'startDateTime'=>Carbon::parse($row->startDateTime)->format('Y-m-d H:i:s'),'endDateTime'=>Carbon::parse($row->endDateTime)->format('Y-m-d H:i:s')];
         }
         return $this->sendResponse($data, 'Success get data'); 
     }
