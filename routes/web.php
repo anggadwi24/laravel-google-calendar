@@ -15,6 +15,5 @@ use App\Http\Controllers\CalendarController;
 
 
 Route::get('/',[CalendarController::class,'index'])->name('home');
-Route::get('/store',[CalendarController::class,'store'])->name('store');
-Route::get('/{id}',[CalendarController::class,'find'])->name('find');
+
 
