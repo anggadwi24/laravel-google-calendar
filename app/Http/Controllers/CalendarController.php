@@ -21,6 +21,7 @@ class CalendarController extends BaseController
         foreach($events as $row){
             $data[] = ['id'=>$row->id,'name'=>$row->name,'description'=>$row->description,'startDateTime'=>Carbon::parse($row->startDateTime)->format('Y-m-d H:i:s'),'endDateTime'=>Carbon::parse($row->endDateTime)->format('Y-m-d H:i:s')];
         }
+        //aaasa
         return $this->sendResponse($data, 'Success get data'); 
     }
     public function store(Request $request){
